@@ -289,6 +289,33 @@ class Random7Buffer {
 }
 
 class PlayBoard {
+    constructor(width = 12, height = 20){
+        this.width = width;
+        this.height = height;
+        let playBoard = []
+        for(let i=0; i<height; i++){
+            let row = [];
+            for(let j=0; j<width; j++) row.push(false);
+            playBoard.push(row);
+        }
+        this.playBoard = playBoard;
+    }
+    getFulledRowIdx(){
+        let idx = [];
+        for(i in this.playBoard){
+            let gogo = true;
+            for(j in this.playBoard[i]){
+                if(!this.playBoard[i][j]) {
+                    gogo = false;
+                    break;
+                }
+            }
+            if(gogo) idx.push(i);
+        }
+        return idx;
+    }
+}
+
 /** @type {CanvasRenderingContext2D} */
 const canvas = document.getElementById('tetris');
 const ctx = canvas.getContext('2d');
