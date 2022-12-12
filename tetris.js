@@ -288,6 +288,7 @@ class Random7Buffer {
     }
 }
 
+class PlayBoard {
 /** @type {CanvasRenderingContext2D} */
 const canvas = document.getElementById('tetris');
 const ctx = canvas.getContext('2d');
